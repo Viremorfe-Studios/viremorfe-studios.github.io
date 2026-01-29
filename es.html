@@ -1,0 +1,484 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+
+        <!-- Hey, que haces aqui? viendo mi codigo sucio para hablar de él con los demas? Fuera! -->
+
+        <title>Viremorfe Studios | Los Carneros Sin Miedo</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link type="image/png" sizes="100x100" rel="icon" href="./images/viremorfe-studios-icon.png" />
+        <script src="https://kit.fontawesome.com/fb81ac845c.js" crossorigin="anonymous"></script>
+        <style>
+        .icons a.icon {
+            color: #ff8c00 !important;
+            opacity: 1 !important;
+            transition: none !important;
+        }
+        .icons a.icon:hover {
+            color: darkOrange !important;
+            opacity: 1 !important;
+        }
+        .fa {
+            color: darkOrange !important;
+            opacity: 1 !important;
+            transition: none !important;
+        }
+        .fa:hover {
+            color: darkOrange !important;
+            opacity: 1 !important;
+        }
+        #header {
+            background: url('images/bg.jpg') no-repeat center center;
+            background-attachment: fixed;
+        }
+        .tools-images img {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+            object-fit: cover;
+        }
+        .team-images img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 10px;
+            object-fit: cover;
+        }
+        @keyframes bounce-up {
+            0% { transform: translateY(0);}
+            50% { transform: translateY(-10px);}
+            100% { transform: translateY(0);}
+        }
+        .tools-images img:hover {
+            animation: bounce-up 0.5s;
+        }
+        .tools-images button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .tools-images button img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        .team-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .team-images img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 10px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .team-images img:hover {
+            animation: bounce-up 0.5s;
+        }
+        .team-images div {
+            text-align: center;
+        }
+        .team-images a {
+            text-decoration: none;
+        }
+        .team-images img {
+            border: none;
+        }
+        .team-avatar {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .team-avatar img {
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+        .team-images div {
+            text-align: center;
+            margin: 25px;
+        }
+        .team-images p {
+            font-size: 0.9em;
+            line-height: 1.7;
+            margin-top: 5px;
+        }
+
+        .section-nav {
+            position: fixed;
+            top: 50%;
+            left: 24px;
+            transform: translateY(-50%);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        .section-nav a {
+            width: 48px;
+            height: 48px;
+            background: #181818cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: darkorange;
+            font-size: 1.5em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            transition: background 0.2s, color 0.2s, transform 0.18s;
+            text-decoration: none !important;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .section-nav a:hover, .section-nav a:focus {
+            background: darkorange;
+            color: #181818;
+            border-color: darkorange;
+            transform: scale(1.12);
+        }
+        .section-nav a .nav-tooltip {
+            display: block;
+            opacity: 0;
+            position: absolute;
+            left: 60px;
+            background: #181818;
+            color: darkorange;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1em;
+            padding: 6px 16px;
+            border-radius: 8px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            pointer-events: none;
+            transition: opacity 0.18s;
+            z-index: 9999;
+        }
+        .section-nav a:hover .nav-tooltip, .section-nav a:focus .nav-tooltip {
+            opacity: 1;
+        }
+        .section-nav a:not(:hover):not(:focus) .nav-tooltip {
+            opacity: 0;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 10000;
+            display: flex;
+            gap: 12px;
+        }
+        .lang-btn {
+            background: #181818cc;
+            color: darkorange;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-family: Impact, sans-serif;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .lang-btn i {
+            font-size: 1.1em;
+        }
+        .lang-btn:hover {
+            background: darkorange;
+            color: #181818;
+            transform: translateY(-3px);
+            border-color: darkorange;
+        }
+
+        @media (max-width: 700px) {
+            .lang-switch {
+                top: 15px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            .section-nav {
+                flex-direction: row;
+                left: 50%;
+                top: unset;
+                bottom: 18px;
+                transform: translateX(-50%);
+                background: none;
+                gap: 12px;
+            }
+            .section-nav a .nav-tooltip {
+                left: 50%;
+                top: -38px;
+                transform: translateX(-50%);
+            }
+        }
+
+        .lang-menu {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.lang-trigger {
+    background: #181818cc;
+    color: darkorange;
+    border: 1px solid #333;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.lang-trigger:hover {
+    border-color: darkorange;
+    transform: scale(1.05);
+}
+
+.lang-options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-menu.active .lang-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-btn {
+    background: #181818cc;
+    color: darkorange !important;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-decoration: none !important;
+    font-family: Impact, sans-serif;
+    font-size: 0.85em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn img {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+.lang-btn:hover {
+    background: #252525;
+    border-color: darkorange;
+}
+
+@media (max-width: 700px) {
+    .lang-menu {
+        top: 15px;
+        right: 15px;
+    }
+}
+        </style>
+    </head>
+    <body id="top">
+
+        <div class="lang-menu" id="languageMenu">
+    <button class="lang-trigger" onclick="toggleLangMenu()" title="Cambiar idioma">
+        <i class="fa-solid fa-globe"></i>
+    </button>
+    
+    <div class="lang-options">
+        <a href="index.html" class="lang-btn">
+            <img src="https://flagcdn.com/w40/us.png" alt="English"> EN
+        </a>
+        <a href="es.html" class="lang-btn">
+            <img src="https://flagcdn.com/w40/es.png" alt="Español"> ES
+        </a>
+    </div>
+</div>
+
+            <header id="header">
+
+                <a href="https://viremorfe.studio" class="image avatar"><img src="images/avatar.png" alt="" /></a>
+                <h1 style = "font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><strong>Somos <font color="darkOrange">Viremorfe Studios</font>, un <br> <font color="darkOrange">equipo independiente
+                </font> de <br> <font color="darkOrange"> desarrolladores de juegos</font>, <br>
+                fundado por <font color="darkOrange">Ismael Merlo</font><br> en <font color="darkOrange">Venezuela</font>  <i class="fa-solid fa-heart fa-beat" style="color: crimson"></i>
+                </h1></strong>
+            </header>
+
+        <nav class="section-nav" aria-label="Navegación de secciones">
+            <a href="#one" title="Filosofía">
+                <i class="fa-solid fa-fire"></i>
+                <span class="nav-tooltip">Filosofía</span>
+            </a>
+            <a href="#two" title="Juegos">
+                <i class="fa-solid fa-gamepad"></i>
+                <span class="nav-tooltip">Juegos</span>
+            </a>
+            <a href="#tools" title="Herramientas">
+                <i class="fa-solid fa-wrench"></i>
+                <span class="nav-tooltip">Herramientas</span>
+            </a>
+            <a href="#support" title="Apóyanos">
+                <i class="fa-solid fa-heart"></i>
+                <span class="nav-tooltip">Apóyanos</span>
+            </a>
+            <a href="#three" title="Contacto">
+                <i class="fa-solid fa-envelope"></i>
+                <span class="nav-tooltip">Contacto</span>
+            </a>
+        </nav>
+        <script>
+            document.querySelectorAll('.section-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: target.getBoundingClientRect().top + window.scrollY - 30,
+                            behavior: 'smooth'
+                        });
+                        this.blur();
+                    }
+                });
+                link.addEventListener('mouseleave', function() {
+                    this.blur();
+                });
+            });
+        </script>
+
+            <div id="main">
+
+                    <section id="one">
+                        <header class="major">
+                            <h2 style = "font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><font color="darkOrange">Nuestra Filosofía</font></h2>
+                        </header>
+                        <p style = "font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">El carnero representa fuego, astucia, fuerza, rebeldía y valentía, representando asi que Viremorfe Studios es un equipo que no teme ante las adversidades que se puedan interponer en su camino. Somos independientes, somos rebeldes, y nos apasiona tomar decisiones arriesgadas.</p>
+                    </section>
+
+                    <section id="two">
+                        <h2 style = "font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><font color="darkOrange">Nuestros Enigmáticos Juegos</font></h2>
+                        <div class="row">
+                            <article class="6u$ 12u$(xsmall) work-item">
+                                <a href="images/fulls/01.png" class="image fit thumb"><img src="images/thumbs/01.png" alt="" /></a>
+                                <h3 class="peru-text" style = "font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><font color="darkOrange">Shadead</font></h3>
+                                <p class="peru-text" style = "font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Shadead es un juego de terror psicológico procedural, inspirado en la saga de videojuegos de Penumbra, resuelve puzzles que no son los mismos en cada partida, en un ambiente y narrativa cambiantes, creando una experiencia sin igual de "terror dinámico".<br> 
+                                <br>
+                                Fecha de lanzamiento esperada: <font color="darkOrange">En Desarrollo</font> <br>
+                                <br>
+                                Motor: <font color="darkOrange">Godot Engine</font> <br>
+                                <br>
+                                Géneros: <font color="darkOrange">Terror Psicológico - Puzzles - Thriller</font> <br>
+                                <br>
+                                Modos de juego: <font color="darkOrange">Un solo jugador</font> <br>
+                                <br>
+                                Plataformas esperadas: <font color="darkOrange">Steam - Itch</font>
+                                </p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <section id="tools">
+                        <h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><font color="darkOrange">Nuestra Extraña Forma De Trabajar</font></h2>
+                        <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Creemos fielmente que el software Open-Source es el modelo más sostenible a largo plazo del desarrollo de software, y eso incluye el desarrollo de videojuegos, por eso usamos tecnologías como Godot, Blender, LMMS, etc. Ya que nos ofrecen un alto grado de personalización, comodidad y versatilidad a la hora de algo tan complicado como el desarrollo de videojuegos, y nos permiten enfocarnos en lo que es realmente importante para nosotros, el diseño del videojuego.
+                        </p>
+                        <div class="tools-images" style="text-align: center;">
+                            <button onclick="window.open('https://godotengine.org', '_blank');">
+                                <img src="images/tools/godot.png" alt="Herramienta 1" class="tool-image" />
+                            </button>
+                            <button onclick="window.open('https://blender.org', '_blank');">
+                                <img src="images/tools/blender.png" alt="Herramienta 1" class="tool-image" />
+                            </button>
+                            <button onclick="window.open('https://lmms.io', '_blank');">
+                                <img src="images/tools/lmms.png" alt="Herramienta 1" class="tool-image" />
+                            </button>
+                        </div>
+                    </section>
+
+                    <section id="support">
+                        <h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                            <font color="darkOrange">¿Quieres apoyar al estudio?</font>
+                        </h2>
+                        <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+                            Tu apoyo nos permite seguir siendo libres y mantener la visión creativa de nuestros proyectos, al apoyarnos no solamente estarás apoyando a un pequeño estudio de Venezuela, sino también a un estudio que colabora de forma activa con la comunidad Open Source, ¡Dos tiros de un solo pájaro!. Además, los mecenas de Patreon pueden acceder a contenido exclusivo, demos anticipadas y participar en decisiones del desarrollo. ¿Prefieres una donación directa? ¡También tienes nuestro Paypal!<br><br>
+                        </p>
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <a href="https://www.patreon.com/viremorfestudios" target="_blank" class="icon fa-brands fa-patreon" style="font-size: 32px; color: darkOrange; margin: 0 20px; text-decoration: none;">
+                                <span style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Patreon</span>
+                            </a>
+                            <a href="https://www.paypal.me/viremorfestudios" target="_blank" class="icon fa-brands fa-paypal" style="font-size: 32px; color: darkOrange; margin: 0 20px; text-decoration: none;">
+                                <span style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PayPal</span>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section id="three"></section>
+                        <h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><font color="darkOrange">¡Contacta con nosotros! ¡No seas tímido! :D</font></h2>
+                        <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">¿Quieres unirte a nuestro equipo o colaborar en algo? ¡No importa de que país seas! ¡Aquí nuestro mail! <br> <br> <a href="mailto:contact@viremorfe.studio" class="fa-regular fa-envelope-open fa-bounce" class="icon fa-envelope-o" style="font-size: 18px; color: darkOrange; text-decoration: none;"></a> </p>
+                    </section>
+            </div>
+
+            <footer id="footer">
+                <ul class="icons">
+                    <br>
+                    <li><a target="_blank" href="https://twitch.tv/viremorfe" class="icon fa-brands fa-twitch"><span class="label">Twitch</span></a></li>
+                    <li><a target="_blank" href="https://x.com/viremorfe" class="icon fa-brands fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a target="_blank" href="https://www.youtube.com/@Viremorfe" class="icon fa-brands fa-youtube"><span class="label">Youtube</span></a></li>
+                    <li><a target="_blank" href="https://tiktok.com/@viremorfe_oficial" class="icon fa-brands fa-tiktok"><span class="label">Tiktok</span></a></li>
+                    <li><a target="_blank" href="https://www.github.com/viremorfe-studios" class="icon fa-brands fa-github"><span class="label">GitHub</span></a></li>
+                    </ul>
+
+                <ul class="copyright">
+                    <li>Copyright &copy; 2026 Viremorfe Studios</li>
+                </ul>
+            </footer>
+
+        <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.poptrox.min.js"></script>
+            <script src="assets/js/skel.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+        <script>
+    function toggleLangMenu() {
+        const menu = document.getElementById('languageMenu');
+        menu.classList.toggle('active');
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.closest('#languageMenu')) {
+            const menu = document.getElementById('languageMenu');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+        }
+    }
+</script>
+
+    </body>
+</html>
